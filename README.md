@@ -40,5 +40,3 @@
 - For iphone instal [expo go ](https://apps.apple.com/us/app/expo-go/id982107779).
 - For android instal [expo go ](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=ru&gl=US&pli=1).
 - Then try it at [expo app store ](https://expo.dev/@solik/insta-clone).
-
-Copyright © 2023
