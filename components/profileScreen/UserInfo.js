@@ -56,10 +56,13 @@ const UserInfo = ({
           >
             <MaterialCommunityIcons
               name="account-edit"
-              size={28}
+              size={40}
               color="white"
             />
           </TouchableOpacity>
+          {/* <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <MaterialCommunityIcons name="menu" size={30} color="white" />
+          </TouchableOpacity> */}
           <View
             style={{
               flexDirection: "row",
@@ -70,19 +73,19 @@ const UserInfo = ({
             <TouchableOpacity disabled={loading}>
               <View style={styles.infoContainer}>
                 <Text style={styles.number}>{postLength}</Text>
-                <Text style={styles.description}>pos...</Text>
+                <Text style={styles.description}>post</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity disabled={loading}>
               <View style={styles.infoContainer}>
                 <Text style={styles.number}>{favorites.length}</Text>
-                <Text style={styles.description}>fav...</Text>
+                <Text style={styles.description}>|yêu thích</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity disabled={loading} onPress={goToSubscription}>
               <View style={styles.infoContainer}>
                 <Text style={styles.number}>{subscribe_list.length}</Text>
-                <Text style={styles.description}>sub...</Text>
+                <Text style={styles.description}>|follower</Text>
               </View>
             </TouchableOpacity>
           </View>

@@ -13,9 +13,7 @@ const FavoritesEmptyPlaceHolder = () => {
         source={require("../../assets/icons/favorites-empty.png")}
         style={{ width: 200, height: 200, marginBottom: 10 }}
       />
-      <Text style={{ color: "white" }}>
-        You don't have any favorite posts..
-      </Text>
+      <Text style={{ color: "white" }}>Bạn không có bài viết nào</Text>
     </View>
   );
 };

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import { FloatingAction } from "react-native-floating-action";
 import { TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const actions = [
   {
-    text: "Add",
+    text: "chatbot",
     icon: require("../../assets/add-icon.png"),
     name: "add",
     position: 1,
@@ -32,14 +32,20 @@ const FloatingButton = ({ onPress }) => {
         <FloatingAction
           actions={actions}
           onPressItem={handlePress}
-          floatingIcon={require("../../assets/add-icon.png")}
           position="right"
           distanceToEdge={20}
+          floatingIcon={
+            <Image
+              source={require("../../assets/chat.png")}
+              style={{ width: 40, height: 40 }} // tăng kích thước của ảnh lên 40x40
+            />
+          }
         />
       )}
-      <TouchableOpacity onPress={toggleButton}>
+      {/* <TouchableOpacity onPress={toggleButton}>
         <Icon name={isButtonVisible ? "visibility-off" : "visibility"} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      {/* loi thu vien  */}
     </>
   );
 };

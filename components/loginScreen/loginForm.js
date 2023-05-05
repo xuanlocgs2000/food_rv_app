@@ -19,7 +19,7 @@ const loginFormSchema = yup.object().shape({
   password: yup
     .string()
     .required()
-    .min(6, "Your password has to have at least 6 characters"),
+    .min(6, "Mật khẩu của bạn phải có ít nhất 6 ký tự"),
 });
 
 const LoginForm = ({ navigation }) => {

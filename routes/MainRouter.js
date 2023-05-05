@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
-
+// import { createDrawerNavigator } from "@react-navigation/drawer";
 import getUserInfo from "../firebase/operations/getUserInfo";
 
+import { FontAwesome5 } from "@expo/vector-icons";
 import AnimatedLoader from "react-native-animated-loader";
 
 import { authSlice } from "../redux/auth/authReducer";
@@ -46,8 +47,11 @@ const MainRouter = () => {
         // source={
         //   (require("./../assets/animation/phone_loader.json"))
         // }
+        // source={{
+        //   uri: "https://assets9.lottiefiles.com/packages/lf20_ujvyzbbd.json",
+        // }}
         source={{
-          uri: "https://assets9.lottiefiles.com/packages/lf20_ujvyzbbd.json",
+          uri: "https://assets4.lottiefiles.com/packages/lf20_vxZDaEHkO2.json",
         }}
         animationStyle={styles.lottie}
         speed={1}
@@ -58,6 +62,16 @@ const MainRouter = () => {
     <NavigationContainer>
       {stateChange ? <SignedInStack /> : <SignedOutStack />}
     </NavigationContainer>
+
+    // <NavigationContainer>
+    //   <Drawer.Navigator initialRouteName="Home">
+    //     <Drawer.Screen
+    //       name="Home"
+    //       component={stateChange ? SignedInStack : SignedOutStack}
+    //     />
+    //     <Drawer.Screen name="DrawerScreen" component={DrawerScreen} />
+    //   </Drawer.Navigator>
+    // </NavigationContainer>
   );
 };
 

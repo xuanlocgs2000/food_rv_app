@@ -91,7 +91,7 @@ const FormikCommentUploader = ({
         >
           <Divider width={1} orientation="vertical" />
           <TextInput
-            placeholder="Enter message"
+            placeholder="Bình phẩm"
             placeholderTextColor="gray"
             style={{
               color: "white",

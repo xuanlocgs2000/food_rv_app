@@ -13,7 +13,7 @@ const UserEmptyPlaceHolder = () => {
         source={require("../../assets/icons/posts-empty.png")}
         style={{ width: 200, height: 200, marginBottom: 10 }}
       />
-      <Text style={{ color: "white" }}>User don't have any posts..</Text>
+      <Text style={{ color: "white" }}>Bạn không có bài viết nào</Text>
     </View>
   );
 };

@@ -8,7 +8,7 @@ const Header = ({ navigation }) => (
         style={{ width: 30, height: 30 }}
       />
     </TouchableOpacity>
-    <Text style={styles.headerText}>SUBSCRIPTION</Text>
+    <Text style={styles.headerText}>Người theo dõi</Text>
     <Text></Text>
   </View>
 );

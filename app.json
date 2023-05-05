@@ -1,21 +1,23 @@
 {
   "expo": {
     "name": "appreview",
-    "description": "This is not commercial and free app. I created it as my pet project.",
-    "slug": "apprv",
+    "description": "apprv",
+    "slug": "foodrv",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
     "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -27,6 +29,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d5c36bde-58a7-48cf-96f5-3c6153506586"
+      }
+    },
+    "owner": "xuanloc12gs"
   }
 }

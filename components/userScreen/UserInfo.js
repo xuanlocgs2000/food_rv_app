@@ -91,7 +91,7 @@ const UserInfo = ({
           >
             <View style={styles.infoContainer}>
               <Text style={styles.number}>{postLength}</Text>
-              <Text style={styles.description}>pos...</Text>
+              <Text style={styles.description}>post |</Text>
             </View>
             <View style={styles.infoContainer}>
               {state?.favorite ? (
@@ -99,7 +99,7 @@ const UserInfo = ({
               ) : (
                 <Text style={styles.number}>0</Text>
               )}
-              <Text style={styles.description}>fav...</Text>
+              <Text style={styles.description}>yêu thích</Text>
             </View>
 
             <View style={styles.infoContainer}>
@@ -111,7 +111,7 @@ const UserInfo = ({
                 <Text style={styles.number}>
                   {state?.subscribe_list ? state?.subscribe_list.length : 0}
                 </Text>
-                <Text style={styles.description}>sub...</Text>
+                <Text style={styles.description}>follower</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -126,7 +126,7 @@ const UserInfo = ({
                 onPress={onSubscribe}
               >
                 <Ionicons name="person-add" size={22} color="white" />
-                <Text style={{ color: "white", fontSize: 12 }}> SUBSCRIBE</Text>
+                <Text style={{ color: "white", fontSize: 12 }}>Theo dõi</Text>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
@@ -140,7 +140,7 @@ const UserInfo = ({
                 <Ionicons name="person-remove" size={22} color="white" />
                 <Text style={{ color: "white", fontSize: 12 }}>
                   {" "}
-                  UNSUBSCRIBE
+                  Đang theo dõi
                 </Text>
               </TouchableOpacity>
             ))}

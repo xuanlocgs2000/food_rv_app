@@ -170,7 +170,7 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
               >
                 <Divider width={0.2} orientation="vertical" />
                 <TextInput
-                  placeholder="Write a caption"
+                  placeholder="Miêu tả món ăn của bạn"
                   placeholderTextColor="gray"
                   style={{
                     color: "white",

@@ -23,7 +23,7 @@ const handleSubscribe = async (email, currenUser) => {
       {
         userEmail: email,
         postId: null,
-        description: "subscribed",
+        description: "Đã theo dõi bạn",
       },
       "subscribeAction"
     );
@@ -41,7 +41,7 @@ const handleSubscribe = async (email, currenUser) => {
       {
         userEmail: email,
         postId: null,
-        description: "unsubscribed",
+        description: "Đã huỷ theo dõi bạn",
       },
       "subscribeAction"
     );

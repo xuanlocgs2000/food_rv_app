@@ -20,11 +20,11 @@ const SignupFormSchema = yup.object().shape({
   username: yup
     .string()
     .required("A username is required")
-    .min(2, "Your username has to have at least 2 characters"),
+    .min(2, "Tên của bạn phải có ít nhất 2 kí tự"),
   password: yup
     .string()
     .required()
-    .min(6, "Your password has to have at least 6 characters"),
+    .min(6, "Mật khẩu của bạn phải có ít nhất 6 ký tự"),
 });
 
 const SignupForm = ({ navigation }) => {
@@ -47,7 +47,7 @@ const SignupForm = ({ navigation }) => {
       console.log(`newUser`, newUser);
       dispatch(authSignUpUser(newUser));
     } catch (error) {
-      Alert.alert("Oops...something went wrong, please try again later");
+      Alert.alert("Rất tiếc...đã xảy ra lỗi, vui lòng thử lại sau");
     }
   };
 

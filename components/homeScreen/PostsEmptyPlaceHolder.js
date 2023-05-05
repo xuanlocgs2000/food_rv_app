@@ -14,7 +14,7 @@ const PostsEmptyPlaceHolder = () => {
         style={{ width: 200, height: 200, marginBottom: 10 }}
       />
       <Text style={{ color: "white" }}>
-        You don't have any subscriptions...
+        Bạn chưa theo dõi ai, hãy khám phá trong phần tìm kiếm nhé
       </Text>
     </View>
   );

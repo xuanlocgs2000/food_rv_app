@@ -7,8 +7,8 @@ export const bottomTabIcons = [
   },
   {
     name: "Search",
-    active: require("../assets/icons/searach_active.png"),
-    inactive: require("../assets/icons/searach_inactive.png"),
+    active: require("../assets/icons/search_active.png"),
+    inactive: require("../assets/icons/search_inactive.png"),
     link: "",
   },
   {

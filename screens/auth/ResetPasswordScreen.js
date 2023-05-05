@@ -55,7 +55,7 @@ const ResetPasswordScreen = ({ navigation }) => {
           >
             <Image
               style={styles.logo}
-              source={require("../../assets/logo.png")}
+              source={require("../../assets/logo_login.png")}
             />
           </View>
           <ResetForm navigation={navigation} />

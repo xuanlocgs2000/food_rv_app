@@ -19,7 +19,7 @@ const handleNotification = async (email, data, action) => {
     case "commentAction":
       await addDoc(collection(fsbase, `users/${email}/journal/`), {
         ...data,
-        description: "left a comment",
+        description: "đã bình phẩm về món ăn của bạn",
         created,
         notificationId,
         date,

@@ -14,7 +14,7 @@ const SearchEmptyPlaceHolder = () => {
         style={{ width: 200, height: 200, marginBottom: 10 }}
       />
       <Text style={{ color: "white", textAlign: "center" }}>
-        Sorry, we couldn't find posts and users that contain such query
+        Xin lỗi không thể tìm thấy dữ liệu liên quan
       </Text>
     </View>
   );

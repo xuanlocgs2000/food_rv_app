@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import { authSignOutUser } from "../../redux/auth/authOperation";
 import getNewNotifications from "../../firebase/operations/getNewNotifications";
-
+import { FontAwesome5 } from "@expo/vector-icons";
 const Header = ({ navigation }) => {
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
@@ -74,7 +74,7 @@ const Header = ({ navigation }) => {
             </View>
           )}
           <Image
-            source={require("../../assets/heart-icon.png")}
+            source={require("../../assets/bell.png")}
             style={styles.icon}
           />
         </TouchableOpacity>
@@ -87,6 +87,17 @@ const Header = ({ navigation }) => {
             style={styles.icon}
           />
         </TouchableOpacity> */}
+        {/* <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <MaterialCommunityIcons name="menu" size={30} color="white" />
+          </TouchableOpacity> */}
+        <TouchableOpacity onPress={logOut}>
+          <FontAwesome5
+            name="sign-out-alt"
+            size={20}
+            color="white"
+            style={styles.icon}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );

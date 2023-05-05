@@ -15,6 +15,6 @@ export const postFooterIcons = [
   {
     name: "Save",
     image: require("../assets/icons/favorite.png"),
-    imageActive: require("../assets/icons/favoriteActive.png"),
+    imageActive: require("../assets/icons/favoriteActive2.png"),
   },
 ];
