@@ -20,9 +20,8 @@
   </p>
 
 </p>
-
+<p>Link demo </p>
 <!-- ABOUT THE PROJECT -->
-
 [![Demo Video](https://i.ibb.co/K0MknQj/Untitled-2-04.png)](https://vimeo.com/823959562/90e47ccb1d)
 
 ## 🆕 Getting Started
