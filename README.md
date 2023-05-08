@@ -23,7 +23,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-[![Demo Video](https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg)](https://vimeo.com/823959562/90e47ccb1d)
+[![Demo Video](https://i.ibb.co/K0MknQj/Untitled-2-04.png)](https://vimeo.com/823959562/90e47ccb1d)
 
 ## 🆕 Getting Started
 
