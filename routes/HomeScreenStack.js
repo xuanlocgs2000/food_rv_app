@@ -79,11 +79,7 @@ const HomeScreenStack = ({ navigation, route }) => {
         name="NewStoryScreen"
         component={NewStoryScreen}
       />
-      {/* <HomeScreenStackNavigator.Screen
-        options={{ headerShown: false }}
-        name="HiddenScreen"
-        component={HiddenScreen}
-      /> */}
+      
     </HomeScreenStackNavigator.Navigator>
   );
 };

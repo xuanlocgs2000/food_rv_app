@@ -23,14 +23,6 @@ const firebaseConfig = {
   messagingSenderId: "927684098464",
   appId: "1:927684098464:web:44d4648c9e89c0b1920cc5",
   measurementId: "G-ZMGYHHBVGZ",
-  ////////////////////////
-  // apiKey: "AIzaSyBv6UanAGExvkb1Nr8JzKT_n2HYWkTsu_M",
-  // authDomain: "testdb-21179.firebaseapp.com",
-  // databaseURL: "https://testdb-21179-default-rtdb.firebaseio.com",
-  // projectId: "testdb-21179",
-  // storageBucket: "testdb-21179.appspot.com",
-  // messagingSenderId: "337720415295",
-  // appId: "1:337720415295:web:123b6f067e8853ca88148a", // foodrv1 cua testdb
 };
 
 // Initialize Firebase

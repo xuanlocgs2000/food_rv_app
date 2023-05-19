@@ -1,0 +1,65 @@
+{"users":[
+    {
+      "email": "admin12@gmail.com",
+      "favorite": [
+        "d060790f-d3d3-4e46-bd3d-d8b816f87b5d",
+        "57275115-d001-483e-aab0-02dcce49d74b"
+      ],
+      "login": "123456",
+      "owner_uid": "8QxC3KLL38Rg7BlYnUqv3F732QF3",
+      "profile_picture": "https://firebasestorage.googleapis.com/v0/b/foodrvapp.appspot.com/o/avatarsImage%2Fdef_avatar.png?alt=media&token=347be51f-bc45-44e9-a4cf-6a795b8a390c",
+      "subscribe_list": [
+        "test1@gmail.com"
+      ],
+      "subscription": "starter",
+      "user_about": "Fankkd",
+      "journal": [
+        {
+          "created": "1683793446747",
+          "date": "05/11/23",
+          "description": "đã bình luận bài viết của bạn",
+          "notificationId": "f6ed2683-2711-4a9c-b8e7-63ed74c8dbbc",
+          "postId": "uuiWzdiGiCycbWkHyTLh",
+          "time": "15:24",
+          "userEmail": "admin12@gmail.com",
+          "watched": true
+        }
+      ],
+      "posts": [
+        {
+          "caption": "Món ngon Hà Nội",
+          "created": "1683791830734",
+          "date": "05/11/23",
+          "email": "admin12@gmail.com",
+          "liked_users": null,
+          "likes": 0,
+          "owner_uid": "8QxC3KLL38Rg7BlYnUqv3F732QF3",
+          "postId": "7496e3aa-a4e6-4f19-88fb-7c6ddb298e81",
+          "postImage": "https://firebasestorage.googleapis.com/v0/b/foodrvapp.appspot.com/o/photos%2",
+          "time":  "14:57",
+          "user": "123456",
+          "comment": [{"comment":
+          "464",
+          "commentId":
+          "4e5c2188-106e-4ef2-8487-3a85c9e235c5",
+          "created":
+          "1683810467326",
+          "date":
+          "05/11/23",
+          "email":
+          "admin12@gmail.com",
+          "owner_uid":
+          "8QxC3KLL38Rg7BlYnUqv3F732QF3",
+          "profile_picture":
+          "https://firebasestorage.googleapis.com/v0/b/foodrvapp.appspot.com/o/avatarsImage%2Fdef_avatar.png?alt=media&token=347be51f-bc45-44e9-a4cf-6a795b8a390c"
+         ,
+         " time":
+          "20:07",
+          "user":
+          "123456"}]
+          
+        }
+    ]
+}
+]
+}
