@@ -44,6 +44,7 @@
     "react-native": "0.70.8",
     "react-native-animated-loader": "^1.0.0",
     "react-native-async-storage": "^0.0.1",
+    "react-native-config": "^1.5.1",
     "react-native-dotenv": "^3.4.8",
     "react-native-draggable": "^3.3.0",
     "react-native-easy-content-loader": "^0.3.2",

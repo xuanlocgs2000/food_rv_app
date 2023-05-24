@@ -9,8 +9,13 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+// import "react-native-dotenv";
+// const API_KEY = "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";
+// const API_KEY = DotEnv.API_KEY;
+import Config from "react-native-config";
 
-const API_KEY = "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";
+// const API_KEY = Config.API_KEY;
+const API_KEY = process.env.API_KEY;
 const systemMessage = {
   role: "system",
   content: "Ẩm thực Việt Nam",
@@ -156,6 +161,16 @@ const ChatBotScreen = ({ navigation }) => {
     return null;
   };
 
+  const renderSystemMessage = (props) => {
+    return (
+      <View style={styles.systemMessageContainer}>
+        <Text style={styles.systemMessageText}>
+          {props.currentMessage.text}
+        </Text>
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar hidden={true} />
@@ -178,6 +193,7 @@ const ChatBotScreen = ({ navigation }) => {
         renderBubble={renderBubble}
         renderComposer={renderComposer}
         renderLoading={renderLoading}
+        renderSystemMessage={renderSystemMessage}
       />
     </View>
   );
@@ -217,6 +233,18 @@ const styles = StyleSheet.create({
   typingText: {
     color: "#999999",
     marginBottom: 5,
+  },
+  systemMessageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  systemMessageText: {
+    backgroundColor: "#f0f0f0",
+    padding: 10,
+    borderRadius: 10,
+    color: "#000",
   },
 });
 
