@@ -93,7 +93,7 @@ const Stories = ({ navigation }) => {
               style={styles.myStoryImg}
             />
           </View>
-          <Text style={styles.storyName}>Add story</Text>
+          {/* <Text style={styles.storyName}>Add story</Text> */}
         </TouchableOpacity>
         {loading && <StoriesSkeleton />}
         {stories.length > 0 &&

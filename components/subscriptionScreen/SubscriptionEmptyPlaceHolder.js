@@ -13,7 +13,7 @@ const SubscriptionEmptyPlaceHolder = () => {
         source={require("../../assets/icons/subscribe-empty.png")}
         style={{ width: 200, height: 200, marginBottom: 10 }}
       />
-      <Text style={{ color: "white" }}>There aren't any subscriptions...</Text>
+      <Text style={{ color: "white" }}>Không ai ở đây cả...</Text>
     </View>
   );
 };

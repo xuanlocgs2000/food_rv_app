@@ -1,14 +1,11 @@
-import { SafeAreaView, ScrollView, RefreshControl } from "react-native";
-import { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { SafeAreaView, ScrollView, RefreshControl, Button } from "react-native";
 import getPostsByEmail from "../../firebase/operations/getPostsByEmail";
-
 import {
   stopUpdatingApp,
   startUpdatingApp,
 } from "../../redux/auth/appUpdateSlice";
-
 import SafeViewAndroid from "../../components/shared/SafeViewAndroid";
 import Header from "../../components/shared/Header";
 import Post from "../../components/shared/Post";
@@ -16,6 +13,22 @@ import PostsSkeleton from "../../components/shared/skeletons/PostsSkeleton";
 import UserInfo from "../../components/profileScreen/UserInfo";
 import UserInfoEditor from "../../components/profileScreen/UserInfoEditor";
 import MyPostsEmptyPlaceHolder from "../../components/profileScreen/MyPostsEmptyPlaceHolder";
+import deletePost from "./handleDeletePost";
+// import React, { useEffect, useState, useCallback } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { SafeAreaView, ScrollView, RefreshControl, Button } from "react-native";
+// import getPostsByEmail from "../../firebase/operations/getPostsByEmail";
+// import {
+//   stopUpdatingApp,
+//   startUpdatingApp,
+// } from "../../redux/auth/appUpdateSlice";
+// import SafeViewAndroid from "../../components/shared/SafeViewAndroid";
+// import Header from "../../components/shared/Header";
+// import Post from "../../components/shared/Post";
+// import PostsSkeleton from "../../components/shared/skeletons/PostsSkeleton";
+// import UserInfo from "../../components/profileScreen/UserInfo";
+// import UserInfoEditor from "../../components/profileScreen/UserInfoEditor";
+// import deletePost from "./handleDeletePost";
 
 const ProfileScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -46,6 +59,7 @@ const ProfileScreen = ({ navigation }) => {
       setIsLoading(false);
       setPosts(posts);
     };
+
     try {
       setIsLoading(true);
       fetchPosts();
@@ -65,6 +79,24 @@ const ProfileScreen = ({ navigation }) => {
       setRefreshing(false);
     }, 2000);
   }, []);
+
+  const handleButtonClick = (postId, postEmail) => {
+    console.log("Post ID:", postId);
+    console.log("Post Email:", postEmail);
+  };
+
+  const onHandleDeletePost = async (postId, email) => {
+    try {
+      await deletePost(postId, email);
+      console.log("Bài viết đã được xoá thành công.", postId);
+
+      // Cập nhật lại danh sách bài viết sau khi xoá thành công
+      const updatedPosts = posts.filter((post) => post.postId !== postId);
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.log("Lỗi khi xoá bài viết:", error.message);
+    }
+  };
 
   return (
     <SafeAreaView
@@ -110,13 +142,18 @@ const ProfileScreen = ({ navigation }) => {
           {posts
             .sort((a, b) => a.created < b.created)
             .map((post) => (
-              <Post
-                key={post.postId}
-                post={post}
-                navigation={navigation}
-                favoriteData={favorites}
-                setFavorites={setFavorites}
-              />
+              <React.Fragment key={post.postId}>
+                <Post
+                  post={post}
+                  navigation={navigation}
+                  favoriteData={favorites}
+                  setFavorites={setFavorites}
+                />
+                <Button
+                  title="Xoá bài viết này"
+                  onPress={() => onHandleDeletePost(post.postId, post.email)}
+                />
+              </React.Fragment>
             ))}
         </ScrollView>
       )}

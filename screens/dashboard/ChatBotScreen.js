@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GiftedChat, Bubble, Composer } from "react-native-gifted-chat";
+import { GiftedChat, Bubble, Composer, Avatar } from "react-native-gifted-chat";
 import {
   View,
   Text,
@@ -9,12 +9,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-// import "react-native-dotenv";
-// const API_KEY = "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";
-// const API_KEY = DotEnv.API_KEY;
-import Config from "react-native-config";
 
-// const API_KEY = Config.API_KEY;
 const API_KEY = process.env.API_KEY;
 const systemMessage = {
   role: "system",
@@ -25,16 +20,16 @@ const ChatBotScreen = ({ navigation }) => {
   const [messages, setMessages] = useState([
     {
       _id: 1,
-      text: "Xin chào, hãy hỏi tôi bất cứ điều gì về ẩm thực Việt Nam",
+      text: "Xin chào, hãy hỏi tôi bất kỳ điều gì về ẩm thực Việt Nam",
       createdAt: new Date(),
       user: {
         _id: 2,
         name: "ChatGPT",
+        avatar: require("../../assets/chatgpt-avatar.png"),
       },
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
-  const [debouncedText, setDebouncedText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = (newMessages) => {
@@ -53,7 +48,6 @@ const ChatBotScreen = ({ navigation }) => {
     const updatedMessages = [outgoingMessage, ...messages];
     setMessages(updatedMessages);
 
-    setDebouncedText(message.text);
     setIsTyping(true);
   };
 
@@ -64,57 +58,60 @@ const ChatBotScreen = ({ navigation }) => {
     }, 500);
 
     return () => clearTimeout(delay);
-  }, [debouncedText]);
+  }, [messages]);
 
   const processMessageToChatGPT = async () => {
-    if (!debouncedText) return;
+    const latestMessage = messages[0];
 
-    setIsLoading(true);
+    if (latestMessage.user._id === 1) {
+      setIsLoading(true);
 
-    const apiMessages = [
-      systemMessage,
-      {
-        role: "user",
-        content: debouncedText,
-      },
-    ];
-
-    const apiRequestBody = {
-      model: "gpt-3.5-turbo",
-      messages: apiMessages,
-    };
-
-    try {
-      const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
+      const apiMessages = [
+        systemMessage,
         {
-          method: "POST",
-          headers: {
-            Authorization: "Bearer " + API_KEY,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(apiRequestBody),
-        }
-      );
-
-      const data = await response.json();
-
-      const assistantMessage = {
-        _id: messages[0]._id + 1,
-        text: data.choices[0].message.content,
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          name: "ChatGPT",
+          role: "user",
+          content: latestMessage.text,
         },
+      ];
+
+      const apiRequestBody = {
+        model: "gpt-3.5-turbo",
+        messages: apiMessages,
       };
 
-      const updatedMessages = [assistantMessage, ...messages];
-      setMessages(updatedMessages);
-    } catch (error) {
-      console.log("Error:", error);
-    } finally {
-      setIsLoading(false);
+      try {
+        const response = await fetch(
+          "https://api.openai.com/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + API_KEY,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(apiRequestBody),
+          }
+        );
+
+        const data = await response.json();
+        // console.log(response);
+        const assistantMessage = {
+          _id: messages[0]._id + 1,
+          text: data.choices[0].message.content,
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: "ChatGPT",
+            avatar: require("../../assets/chatgpt-avatar.png"),
+          },
+        };
+
+        const updatedMessages = [assistantMessage, ...messages];
+        setMessages(updatedMessages);
+      } catch (error) {
+        console.log("Error:", error);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -128,7 +125,7 @@ const ChatBotScreen = ({ navigation }) => {
         }}
         wrapperStyle={{
           left: { backgroundColor: "#f0f0f0" },
-          right: { backgroundColor: "#007BFF" },
+          right: { backgroundColor: "#02424a" },
         }}
       />
     );
@@ -148,13 +145,10 @@ const ChatBotScreen = ({ navigation }) => {
   };
 
   const renderLoading = () => {
-    if (isLoading || isTyping) {
+    if (isLoading && !isTyping) {
       return (
         <View style={styles.loadingContainer}>
-          {isTyping && (
-            <Text style={styles.typingText}>ChatGPT đang gõ...</Text>
-          )}
-          {isLoading && <ActivityIndicator size="small" color="#999999" />}
+          <ActivityIndicator size="small" color="#999999" />
         </View>
       );
     }
@@ -169,6 +163,10 @@ const ChatBotScreen = ({ navigation }) => {
         </Text>
       </View>
     );
+  };
+
+  const renderAvatar = (props) => {
+    return <Avatar {...props} />;
   };
 
   return (
@@ -194,6 +192,7 @@ const ChatBotScreen = ({ navigation }) => {
         renderComposer={renderComposer}
         renderLoading={renderLoading}
         renderSystemMessage={renderSystemMessage}
+        renderAvatar={renderAvatar}
       />
     </View>
   );
@@ -202,12 +201,13 @@ const ChatBotScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#000",
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#0275d8",
+    backgroundColor: "#35bcde",
     borderBottomWidth: 1,
     marginBottom: 5,
   },
@@ -225,14 +225,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     fontSize: 16,
+    color: "black",
   },
   loadingContainer: {
     alignItems: "center",
     marginTop: 10,
-  },
-  typingText: {
-    color: "#999999",
-    marginBottom: 5,
   },
   systemMessageContainer: {
     justifyContent: "center",

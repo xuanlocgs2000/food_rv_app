@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  Modal,
 } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import { useEffect, useState, memo } from "react";
@@ -18,7 +19,8 @@ import { handleLike, handleFavorite } from "../../firebase/operations";
 
 import { Divider } from "@rneui/themed";
 import { postFooterIcons } from "../../data/postFooterIcons";
-
+// import { Picker } from "@react-native-picker/picker";
+import DropDownPicker from "react-native-dropdown-picker";
 const Post = ({ post, navigation, favoriteData, route }) => {
   const {
     profile_picture,
@@ -96,7 +98,20 @@ const PostHeader = ({ profile_picture, user, navigation, userEmail }) => {
       setLoading(false);
     }, 2000);
   };
+  const [showOptions, setShowOptions] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
+  const options = [
+    { label: "Option 1", value: "option1" },
+    { label: "Option 2", value: "option2" },
+    { label: "Option 3", value: "option3" },
+  ];
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    // Handle logic based on selected option here
+    // For example, perform an action or navigate to a new screen
+  };
   return (
     <View style={styles.postHeaderContainer}>
       <TouchableOpacity
@@ -108,9 +123,27 @@ const PostHeader = ({ profile_picture, user, navigation, userEmail }) => {
         <Text style={styles.postHeaderText}>{user?.toLowerCase()}</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <Text style={{ color: "white", fontWeight: "900" }}>...</Text>
+      <TouchableOpacity onPress={() => setShowOptions(!showOptions)}>
+        <Text style={{ color: "white", fontWeight: "900" }}>Tuỳ chọn</Text>
       </TouchableOpacity>
+
+      {showOptions && (
+        <View style={styles.optionsContainer}>
+          <DropDownPicker
+            items={options}
+            defaultValue={selectedOption}
+            containerStyle={{ height: 40, width: 150 }}
+            style={{ backgroundColor: "#fafafa" }}
+            itemStyle={{ justifyContent: "flex-start" }}
+            dropDownStyle={{ backgroundColor: "#fafafa" }}
+            onChangeItem={(item) => handleOptionSelect(item.value)}
+          />
+
+          <TouchableOpacity onPress={() => setShowOptions(false)}>
+            <Text style={{ color: "blue", marginVertical: 10 }}>Đóng</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };

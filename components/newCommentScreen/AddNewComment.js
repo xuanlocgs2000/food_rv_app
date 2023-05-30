@@ -95,7 +95,7 @@ const Header = ({ navigation }) => {
           style={{ width: 30, height: 30 }}
         />
       </TouchableOpacity>
-      <Text style={styles.headerText}>COMMENTS</Text>
+      <Text style={styles.headerText}>Bình phẩm</Text>
       <Text></Text>
     </View>
   );
