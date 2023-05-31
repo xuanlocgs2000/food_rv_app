@@ -1,5 +1,5 @@
 import { doc, deleteDoc } from "firebase/firestore";
-import { fsbase } from "../../firebase/firebase";
+import { fsbase } from "../firebase";
 
 const deletePost = async (email, postId) => {
   const postRef = doc(fsbase, `users/${email}/posts/${postId}`);

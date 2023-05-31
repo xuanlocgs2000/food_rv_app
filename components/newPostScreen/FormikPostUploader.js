@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
   Keyboard,
+  Alert,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,8 +24,8 @@ const PLACEHOLDERIMG =
 const uploadPostSchema = yup.object().shape({
   caption: yup
     .string()
-    .max(2200, "Caption has reached the character limits")
-    .required(),
+    .max(2200, "Đã đạt giới hạn kí tự")
+    .required("Hãy mô tả về món ăn của bạn nào!"),
 });
 
 const FormikPostUploader = ({ navigation, setLoading, loading }) => {
@@ -82,7 +83,7 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
         quality: 0.5,
       });
 
-      if (!result.canceled) {
+      if (!result.cancelled) {
         setPostImage(result.assets[0].uri);
       }
     } catch (error) {
@@ -107,6 +108,7 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
     const makePost = async (caption, postImage, email, username, owner_uid) => {
       await handlePost(caption, postImage, email, username, owner_uid);
       dispatch(startUpdatingApp());
+      Alert.alert("Thành công", "Đăng bài viết mới thành công");
     };
     try {
       makePost(caption, postImage, email, username, owner_uid);
@@ -187,8 +189,9 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
                 rowStyle={{ backgroundColor: "#ffffff" }}
                 dropdownTextStyle={{ color: "#333333" }}
                 rowTextStyle={{ color: "#333333" }}
+                defaultButtonText="Chọn loại món ăn"
               />
-
+              {/* /> */}
               <View
                 style={{
                   flexDirection: "row",
@@ -262,59 +265,42 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
                   </Text>
                 </TouchableOpacity>
               </View>
-
               <TextInput
-                placeholder="Miêu tả món ăn của bạn"
-                placeholderTextColor="gray"
                 style={{
-                  color: "white",
-                  fontSize: 16,
-                  paddingLeft: 12,
-                  paddingRight: 70,
-                  paddingTop: -10,
-                  backgroundColor: "transparent",
-                  borderWidth: 1,
+                  color: "#3498db",
+                  height: 100,
                   borderColor: "gray",
-                  borderRadius: 5,
-                  minHeight: 100,
-                  marginTop: -15,
+                  borderWidth: 1,
+                  marginBottom: 10,
+                  paddingHorizontal: 10,
+                  paddingVertical: 5,
                 }}
-                multiline={true}
+                placeholder="Caption"
                 onChangeText={handleChange("caption")}
                 onBlur={handleBlur("caption")}
                 value={values.caption}
+                multiline={true}
               />
-
-              <TouchableOpacity
-                disabled={!isSubmitting && postImage.length === 0}
-                style={{
-                  alignItems: "center",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  marginTop: 10,
-                }}
-                onPress={handleSubmit}
-              >
-                <Text
-                  style={{
-                    color:
-                      postImage.length !== 0 && !isSubmitting
-                        ? "white"
-                        : "gray",
-                    fontSize: 18,
-                    paddingVertical: 10,
-                    paddingHorizontal: 20,
-                    backgroundColor:
-                      postImage.length !== 0 && !isSubmitting
-                        ? "#1abc9c"
-                        : "#34495e",
-                    borderRadius: 5,
-                  }}
-                >
-                  {loading ? "Loading..." : "Đăng"}
-                </Text>
-              </TouchableOpacity>
+              {errors.caption && (
+                <Text style={{ color: "#3498db" }}>{errors.caption}</Text>
+              )}
             </View>
+
+            <Divider />
+
+            <TouchableOpacity
+              activeOpacity={0.6}
+              onPress={handleSubmit}
+              style={{
+                backgroundColor: !isValid ? "gray" : "#3498db",
+                paddingVertical: 10,
+                alignItems: "center",
+                marginTop: 10,
+              }}
+              disabled={!isValid}
+            >
+              <Text style={{ color: "white" }}>Đăng bài</Text>
+            </TouchableOpacity>
           </>
         )}
       </Formik>
