@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const actions = [
   {
     text: "chatbot",
-    icon: require("../../assets/add-icon.png"),
+    icon: require("../../assets/msg-icon.png"),
     name: "add",
     position: 1,
   },

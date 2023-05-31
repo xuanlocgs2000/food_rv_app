@@ -5,7 +5,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 const questions = [
   "Món ngon các vùng miền Việt Nam",
   "Món ngon miền Bắc",
-  "MÓn ngon Miền Nam",
+  "Món ngon Miền Nam",
   "Món ngon miền Trung",
 ];
 

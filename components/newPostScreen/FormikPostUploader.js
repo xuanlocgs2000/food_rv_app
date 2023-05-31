@@ -17,7 +17,7 @@ import SelectDropdown from "react-native-select-dropdown";
 import handlePost from "../../firebase/operations/handlePost";
 import { startUpdatingApp } from "../../redux/auth/appUpdateSlice";
 import { Divider } from "@rneui/themed";
-
+import { setTimeout } from 'react-native';
 const PLACEHOLDERIMG =
   "https://www.shorekids.co.nz/wp-content/uploads/2014/08/ig-placeholder-500.jpg";
 
@@ -83,7 +83,7 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
         quality: 0.5,
       });
 
-      if (!result.cancelled) {
+      if (!result.canceled) {
         setPostImage(result.assets[0].uri);
       }
     } catch (error) {
@@ -109,6 +109,10 @@ const FormikPostUploader = ({ navigation, setLoading, loading }) => {
       await handlePost(caption, postImage, email, username, owner_uid);
       dispatch(startUpdatingApp());
       Alert.alert("Thành công", "Đăng bài viết mới thành công");
+
+      // setTimeout(() => {
+      //   Alert.alert("Thành công", "Đăng bài viết mới thành công", [{ text: "OK" }], { cancelable: false });
+      // }, 1000); // 1 giây
     };
     try {
       makePost(caption, postImage, email, username, owner_uid);

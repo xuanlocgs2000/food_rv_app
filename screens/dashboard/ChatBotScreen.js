@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { GiftedChat, Bubble, Composer, Avatar } from "react-native-gifted-chat";
 import {
   View,
@@ -20,6 +20,8 @@ const systemMessage = {
 };
 
 const ChatBotScreen = ({ navigation }) => {
+  const giftedChatRef = useRef(null);
+
   const [messages, setMessages] = useState([
     {
       _id: 1,
@@ -36,6 +38,14 @@ const ChatBotScreen = ({ navigation }) => {
   const [isTyping, setIsTyping] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isFAQListVisible, setIsFAQListVisible] = useState(false);
+  const [scrollToBottom, setScrollToBottom] = useState(false);
+
+  useEffect(() => {
+    if (scrollToBottom) {
+      giftedChatRef.current?.scrollToBottom();
+      setScrollToBottom(false);
+    }
+  }, [scrollToBottom]);
 
   useEffect(() => {
     const delay = setTimeout(() => {
@@ -182,7 +192,7 @@ const ChatBotScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.faqButton} onPress={toggleFAQList}>
         <Image
           source={require("../../assets/question.png")}
-          style={{ width: 20, height: 20 }}
+          style={{ width: 25, height: 25 }}
         />
       </TouchableOpacity>
     );
@@ -217,6 +227,19 @@ const ChatBotScreen = ({ navigation }) => {
     setIsFAQListVisible(false);
   };
 
+  const scrollToBottomButton = (
+    <TouchableOpacity
+      style={styles.scrollToBottomButton}
+      onPress={() => setScrollToBottom(true)}
+    >
+      {/* <Text style={styles.scrollToBottomButtonText}>Cuộn xuống dưới cùng</Text> */}
+      <Image
+        source={require("../../assets/down-arrow.png")}
+        style={{ width: 30, height: 30 }}
+      />
+    </TouchableOpacity>
+  );
+
   const dismissFAQList = () => {
     setIsFAQListVisible(false);
   };
@@ -247,7 +270,9 @@ const ChatBotScreen = ({ navigation }) => {
           renderLoading={renderLoading}
           renderSystemMessage={renderSystemMessage}
           renderAvatar={renderAvatar}
+          ref={giftedChatRef}
         />
+        {scrollToBottomButton}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -262,7 +287,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#35bcde",
+    backgroundColor: "#48a7a8",
     borderBottomWidth: 1,
     marginBottom: 5,
   },
@@ -275,7 +300,7 @@ const styles = StyleSheet.create({
   },
   textInputStyle: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#c0e9f0",
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 8,
@@ -303,6 +328,20 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   faqButtonText: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  scrollToBottomButton: {
+    position: "absolute",
+    bottom: 95,
+    right: 10,
+    // backgroundColor: "red",
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  scrollToBottomButtonText: {
     fontSize: 14,
     fontWeight: "bold",
     color: "#fff",
