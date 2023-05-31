@@ -8,12 +8,9 @@ import {
   StatusBar,
   TouchableOpacity,
   Image,
-  TouchableWithoutFeedback,
 } from "react-native";
-import FAQList from "../../components/chatbot/FAQList";
 
 const API_KEY = process.env.API_KEY;
-
 const systemMessage = {
   role: "system",
   content: "Ẩm thực Việt Nam",
@@ -21,6 +18,16 @@ const systemMessage = {
 
 const ChatBotScreen = ({ navigation }) => {
   const [messages, setMessages] = useState([
+    {
+      _id: 0,
+      text: "Câu hỏi thường gặp",
+      createdAt: new Date(),
+      user: {
+        _id: 2,
+        name: "ChatGPT",
+        avatar: require("../../assets/chatgpt-avatar.png"),
+      },
+    },
     {
       _id: 1,
       text: "Xin chào, hãy hỏi tôi bất kỳ điều gì về ẩm thực Việt Nam",
@@ -32,19 +39,9 @@ const ChatBotScreen = ({ navigation }) => {
       },
     },
   ]);
-
   const [isTyping, setIsTyping] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isFAQListVisible, setIsFAQListVisible] = useState(false);
-
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      setIsTyping(false);
-      processMessageToChatGPT();
-    }, 500);
-
-    return () => clearTimeout(delay);
-  }, [messages]);
 
   const handleSend = (newMessages) => {
     const message = newMessages[0];
@@ -64,6 +61,15 @@ const ChatBotScreen = ({ navigation }) => {
 
     setIsTyping(true);
   };
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setIsTyping(false);
+      processMessageToChatGPT();
+    }, 500);
+
+    return () => clearTimeout(delay);
+  }, [messages]);
 
   const processMessageToChatGPT = async () => {
     const latestMessage = messages[0];
@@ -98,6 +104,7 @@ const ChatBotScreen = ({ navigation }) => {
         );
 
         const data = await response.json();
+        // console.log(response);
         const assistantMessage = {
           _id: messages[0]._id + 1,
           text: data.choices[0].message.content,
@@ -177,32 +184,9 @@ const ChatBotScreen = ({ navigation }) => {
     setIsFAQListVisible(!isFAQListVisible);
   };
 
-  const renderFAQButton = () => {
-    return (
-      <TouchableOpacity style={styles.faqButton} onPress={toggleFAQList}>
-        <Image
-          source={require("../../assets/question.png")}
-          style={{ width: 20, height: 20 }}
-        />
-      </TouchableOpacity>
-    );
-  };
-
-  const renderFAQList = () => {
-    if (isFAQListVisible) {
-      return (
-        <FAQList
-          handleFAQQuestionPress={handleFAQQuestionPress}
-          toggleFAQList={toggleFAQList}
-        />
-      );
-    }
-    return null;
-  };
-
   const handleFAQQuestionPress = (question) => {
-    const newMessage = {
-      _id: messages[0]._id + 1,
+    const outgoingMessage = {
+      _id: messages.length + 1,
       text: question,
       createdAt: new Date(),
       user: {
@@ -211,101 +195,115 @@ const ChatBotScreen = ({ navigation }) => {
       },
     };
 
-    const updatedMessages = [newMessage, ...messages];
+    const updatedMessages = [outgoingMessage, ...messages];
     setMessages(updatedMessages);
-
-    setIsFAQListVisible(false);
-  };
-
-  const dismissFAQList = () => {
     setIsFAQListVisible(false);
   };
 
   return (
-    <TouchableWithoutFeedback onPress={dismissFAQList}>
-      <View style={styles.container}>
-        <StatusBar hidden={true} />
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Image
-              source={require("../../assets/back-icon.png")}
-              style={{ width: 30, height: 30 }}
-            />
-          </TouchableOpacity>
-          <Text style={styles.textHeader}>ChatBot Ẩm Thực Việt Nam</Text>
-          {renderFAQButton()}
-        </View>
-        {renderFAQList()}
-        <GiftedChat
-          messages={messages}
-          onSend={handleSend}
-          user={{
-            _id: 1,
-          }}
-          renderBubble={renderBubble}
-          renderComposer={renderComposer}
-          renderLoading={renderLoading}
-          renderSystemMessage={renderSystemMessage}
-          renderAvatar={renderAvatar}
-        />
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" />
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={toggleFAQList}>
+          <Text style={styles.faqButton}>Câu hỏi thường gặp</Text>
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Ẩm thực Việt Nam</Text>
       </View>
-    </TouchableWithoutFeedback>
+      {isFAQListVisible && (
+        <View style={styles.faqListContainer}>
+          <TouchableOpacity
+            style={styles.faqQuestion}
+            onPress={() => handleFAQQuestionPress("Câu hỏi 1")}
+          >
+            <Text style={styles.faqQuestionText}>Câu hỏi 1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.faqQuestion}
+            onPress={() => handleFAQQuestionPress("Câu hỏi 2")}
+          >
+            <Text style={styles.faqQuestionText}>Câu hỏi 2</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.faqQuestion}
+            onPress={() => handleFAQQuestionPress("Câu hỏi 3")}
+          >
+            <Text style={styles.faqQuestionText}>Câu hỏi 3</Text>
+          </TouchableOpacity>
+          {/* Thêm các câu hỏi khác tại đây */}
+        </View>
+      )}
+      <GiftedChat
+        messages={messages}
+        onSend={handleSend}
+        user={{
+          _id: 1,
+        }}
+        renderBubble={renderBubble}
+        renderComposer={renderComposer}
+        renderLoading={renderLoading}
+        renderSystemMessage={renderSystemMessage}
+        renderAvatar={renderAvatar}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
   },
-  header: {
+  headerContainer: {
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#35bcde",
-    borderBottomWidth: 1,
-    marginBottom: 5,
+    paddingTop: 16,
+    paddingBottom: 8,
+    backgroundColor: "#f0f0f0",
   },
-  textHeader: {
-    fontSize: 16,
-    textAlign: "center",
-    fontWeight: "bold",
-    color: "#fff",
-    marginLeft: 20,
-  },
-  textInputStyle: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 20,
-    paddingHorizontal: 10,
+  faqButton: {
+    paddingHorizontal: 16,
     paddingVertical: 8,
     fontSize: 16,
-    color: "black",
+    color: "#02424a",
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#02424a",
+  },
+  faqListContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: "#f0f0f0",
+  },
+  faqQuestion: {
+    paddingVertical: 8,
+  },
+  faqQuestionText: {
+    fontSize: 16,
+    color: "#02424a",
   },
   loadingContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
+    marginBottom: 4,
   },
   systemMessageContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 4,
   },
   systemMessageText: {
-    backgroundColor: "#f0f0f0",
-    padding: 10,
-    borderRadius: 10,
-    color: "#000",
-  },
-  faqButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-  },
-  faqButtonText: {
     fontSize: 14,
-    fontWeight: "bold",
-    color: "#fff",
+    color: "#999999",
+  },
+  textInputStyle: {
+    fontSize: 16,
+    lineHeight: 18,
+    paddingBottom: 6,
+    paddingHorizontal: 0,
   },
 });
 
