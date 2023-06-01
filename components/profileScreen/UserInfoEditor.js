@@ -135,7 +135,7 @@ const UserInfoEditor = ({
       >
         <View>
           <TextInput
-            placeholder="Enter description"
+            placeholder="Mô tả thêm về bản thân bạn"
             placeholderTextColor="gray"
             style={{
               minHeight: 100,

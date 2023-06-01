@@ -38,7 +38,7 @@ const ProfileScreen = ({ navigation }) => {
   const { status } = useSelector((state) => state.appUpdate);
 
   const [refreshing, setRefreshing] = useState(false);
-  const [editorMode, setEditorMode] = useState(false);
+  const [editorMode, seteditorMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [favorites, setFavorites] = useState(favorite ? favorite : []);
@@ -135,7 +135,7 @@ const ProfileScreen = ({ navigation }) => {
       <Header navigation={navigation} />
       {!editorMode ? (
         <UserInfo
-          setEditorMode={setEditorMode}
+          seteditorMode={seteditorMode}
           username={username}
           email={email}
           postLength={posts.length}
@@ -147,7 +147,7 @@ const ProfileScreen = ({ navigation }) => {
         />
       ) : (
         <UserInfoEditor
-          setEditorMode={setEditorMode}
+          seteditorMode={seteditorMode}
           username={username}
           email={email}
           postLength={posts.length}

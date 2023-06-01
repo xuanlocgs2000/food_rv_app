@@ -110,7 +110,7 @@ const ChatBotScreen = ({ navigation }) => {
         const data = await response.json();
         const assistantMessage = {
           _id: messages[0]._id + 1,
-          text: data.choices[0].message.content,
+          text: data.choices[0]?.message?.content || "No response",
           createdAt: new Date(),
           user: {
             _id: 2,

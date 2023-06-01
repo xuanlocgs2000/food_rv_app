@@ -17,7 +17,8 @@
       "hidden": true
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/d5c36bde-58a7-48cf-96f5-3c6153506586"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -29,7 +30,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.xuanloc12gs.foodrv"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -39,6 +41,9 @@
         "projectId": "d5c36bde-58a7-48cf-96f5-3c6153506586"
       }
     },
-    "owner": "xuanloc12gs"
+    "owner": "xuanloc12gs",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
