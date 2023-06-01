@@ -23,7 +23,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-Link demo :[![Demo Video](https://i.ibb.co/K0MknQj/Untitled-2-04.png)](https://vimeo.com/823959562/90e47ccb1d)
+Link video demo :[![Demo Video](https://ibb.co/DKSQKqy)](https://vimeo.com/832278523/1acdbb1cad)
 
 ## 🆕 Getting Started
 

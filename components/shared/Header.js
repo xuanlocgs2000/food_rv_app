@@ -90,14 +90,14 @@ const Header = ({ navigation }) => {
         {/* <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <MaterialCommunityIcons name="menu" size={30} color="white" />
           </TouchableOpacity> */}
-        {/* <TouchableOpacity onPress={logOut}>
+        <TouchableOpacity onPress={logOut}>
           <FontAwesome5
             name="sign-out-alt"
             size={20}
             color="white"
-            style={styles.icon}
+            style={styles.iconlogout}
           />
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -119,6 +119,14 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   icon: {
+    // right: -30,
+    width: 30,
+    height: 30,
+    marginRight: 10,
+    resizeMode: "contain",
+  },
+  iconlogout: {
+    right: -30,
     width: 30,
     height: 30,
     marginRight: 10,
