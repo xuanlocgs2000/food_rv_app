@@ -39,6 +39,7 @@ const ChatBotScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isFAQListVisible, setIsFAQListVisible] = useState(false);
   const [scrollToBottom, setScrollToBottom] = useState(false);
+  const [showScrollToBottom, setShowScrollToBottom] = useState(true);
 
   useEffect(() => {
     if (scrollToBottom) {
@@ -227,18 +228,17 @@ const ChatBotScreen = ({ navigation }) => {
     setIsFAQListVisible(false);
   };
 
-  const scrollToBottomButton = (
+  const scrollToBottomButton = showScrollToBottom ? (
     <TouchableOpacity
       style={styles.scrollToBottomButton}
       onPress={() => setScrollToBottom(true)}
     >
-      {/* <Text style={styles.scrollToBottomButtonText}>Cuộn xuống dưới cùng</Text> */}
       <Image
         source={require("../../assets/down-arrow.png")}
         style={{ width: 30, height: 30 }}
       />
     </TouchableOpacity>
-  );
+  ) : null;
 
   const dismissFAQList = () => {
     setIsFAQListVisible(false);
