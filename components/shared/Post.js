@@ -124,7 +124,7 @@ const PostHeader = ({ profile_picture, user, navigation, userEmail }) => {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => setShowOptions(!showOptions)}>
-        <Text style={{ color: "white", fontWeight: "900" }}>Tuỳ chọn</Text>
+        <Text style={{ color: "white", fontWeight: "900" }}>...</Text>
       </TouchableOpacity>
 
       {showOptions && (

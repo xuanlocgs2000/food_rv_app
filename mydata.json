@@ -63,3 +63,36 @@
 }
 ]
 }
+
+// Object {
+//   "choices": Array [
+//     Object {
+//       "finish_reason": "stop",
+//       "index": 0,
+//       "message": Object {
+//         "content": "Miền Trung Việt Nam có rất nhiều món ăn đặc trưng và ngon miệng, dưới đây là một số món ngon miền Trung:
+
+// 1. Bánh bột lọc: Là món ăn truyền thống của Huế, được làm từ bột gạo, nhân tôm hoặc thịt heo và nấm. Bánh được chiên giòn và ăn kèm với nước chấm.    
+
+// 2. Bánh canh bà Năm: Bánh canh là món ăn phổ biến ở Việt Nam, còn bánh canh bà Năm ở miền Trung rất đặc sắc. Bánh canh được làm từ bột gạo và có hình dạng như sợi, ăn kèm với nước dùng từ hải sản.
+
+// 3. Mì Quảng: Món mì nổi tiếng của Quảng Nam, được làm từ bột mì, nước lèo và ăn kèm với tôm, thịt heo, trứng, hành tây, hành lá, rau thơm, đậu phụng, bánh tráng và nước mắm.
+
+// 4. Bánh tráng cuốn thịt heo nướng: Món ăn nổi tiếng ở Đà Nẵng, bao gồm sườn heo nướng trên than hoa, ăn kèm với bánh tráng, rau sống và nước chấm.    
+
+// 5. Cơm hến: Món ăn gốc Huế, bao gồm cơm nấu với hến, thịt heo, rau, tỏi và ớt được cắt nhỏ.
+
+// 6. Nem lụi: Là món nem nướng trên than hoa, được cuốn vào miếng bánh tráng, ăn kèm với rau sống và nước chấm.
+
+// 7. Chả cá: Món ăn chế biến từ cá và tôm, được băm nhuyễn và cuốn thành khổ qua, ăn kèm với bún tươi và rau sống.
+//   "created": 1686340181,
+//   "id": "chatcmpl-7PcP7SsQPBnrtzbbby78KhwdWTddV",
+//   "model": "gpt-3.5-turbo-0301",
+//   "object": "chat.completion",
+//   "usage": Object {
+//     "completion_tokens": 651,
+//     "prompt_tokens": 30,
+//     "total_tokens": 681,
+//   },
+// }
+

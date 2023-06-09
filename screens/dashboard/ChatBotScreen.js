@@ -108,7 +108,13 @@ const ChatBotScreen = ({ navigation }) => {
           }
         );
 
-        const data = await response.json();
+        const data = await response.json();//"token" đề cập đến các đơn vị nhỏ nhất của dữ liệu văn bản được sử dụng để xử lý và đưa vào mô hình.
+        //usage: Thông tin về việc sử dụng API.
+
+// completion_tokens: Số lượng token được sử dụng trong quá trình hoàn thành tin nhắn.
+// prompt_tokens: Số lượng token trong phần gợi ý (prompt) của tin nhắn.
+// total_tokens: Tổng số token trong yêu cầu gửi tin nhắn.
+        console.log(data);
         const assistantMessage = {
           _id: messages[0]._id + 1,
           text: data.choices[0]?.message?.content || "No response",

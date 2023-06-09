@@ -109,23 +109,25 @@ const FormikCommentUploader = ({
           <TouchableOpacity
             disabled={!isValid && isSubmitting}
             style={{
-              width: 100,
+              width: 80,
+              height: 30,
+              backgroundColor: isValid && !isSubmitting ? "#2980b9" : "#CCCCCC",
+              borderRadius: 5,
+              justifyContent: "center",
               alignItems: "center",
-              marginLeft: "auto",
-              marginRight: "auto",
               position: "absolute",
-              right: 0,
-              top: 12,
+              right: 10,
+              top: 10,
             }}
             onPress={handleSubmit}
           >
             <Text
               style={{
-                color: isValid && !isSubmitting ? "white" : "gray",
-                fontSize: 18,
+                color: "white",
+                fontSize: 16,
               }}
             >
-              Send
+              Đăng
             </Text>
           </TouchableOpacity>
         </View>

@@ -33,7 +33,7 @@ export const authSignUpUser =
 
       switch (error.message) {
         case "Firebase: Error (auth/email-already-in-use).":
-          Alert.alert("This email already in use");
+          Alert.alert("Email này đã dược đăng kí");
           break;
 
         default:
@@ -60,7 +60,7 @@ export const authSignInUser =
         })
       );
     } catch (error) {
-      Alert.alert("Oops!..", "Error! Email or password doesn't match!", [
+      Alert.alert("Oops!..", "Error! Email hoặc password không chính xác", [
         { text: "ok", onPress: () => console.log("Ok"), style: "cancel" },
         { text: "Sign Up", onPress: () => navigation.push("SignupScreen") },
       ]);
