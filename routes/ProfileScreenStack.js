@@ -9,6 +9,7 @@ import NewPostScreen from "../screens/dashboard/nestedScreens/NewPostScreen";
 import UserScreen from "../screens/dashboard/UserScreen";
 import SubscriptionScreen from "../screens/dashboard/nestedScreens/SubscriptionScreen";
 import NotificationScreen from "../screens/dashboard/nestedScreens/NotificationScreen";
+import EditPostScreen from "../screens/dashboard/EditPostScreen";
 
 const ProfileScreenStackNavigator = createStackNavigator();
 
@@ -61,6 +62,11 @@ const ProfileScreenStack = ({ navigation, route }) => {
         options={{ headerShown: false }}
         name="PostScreen"
         component={PostScreen}
+      />
+      <ProfileScreenStackNavigator.Screen
+        options={{ headerShown: false }}
+        name="EditPostScreen"
+        component={EditPostScreen}
       />
     </ProfileScreenStackNavigator.Navigator>
   );

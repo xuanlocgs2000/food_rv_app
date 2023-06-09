@@ -27,12 +27,11 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.xuanloc12gs.foodrvApp",
-      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.xuanloc12gs.foodrv"
     },
     "web": {
       "favicon": "./assets/favicon.png"
