@@ -39,15 +39,23 @@ const ChatBotScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isFAQListVisible, setIsFAQListVisible] = useState(false);
   const [scrollToBottom, setScrollToBottom] = useState(false);
+  // const [showScrollToBottom, setShowScrollToBottom] = useState(true);
   const [showScrollToBottom, setShowScrollToBottom] = useState(true);
 
+  const [showInfoBanner, setShowInfoBanner] = useState(true);
   useEffect(() => {
     if (scrollToBottom) {
       giftedChatRef.current?.scrollToBottom();
       setScrollToBottom(false);
     }
   }, [scrollToBottom]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInfoBanner(false);
+    }, 3000);
 
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     const delay = setTimeout(() => {
       setIsTyping(false);
@@ -57,6 +65,15 @@ const ChatBotScreen = ({ navigation }) => {
     return () => clearTimeout(delay);
   }, [messages]);
 
+  const InfoBanner = () => {
+    return (
+      <View style={styles.infoBanner}>
+        <Text style={styles.infoBannerText}>
+          Cảnh báo: Đây là thông tin chỉ để tham khảo và cân nhắc khi sử dụng!
+        </Text>
+      </View>
+    );
+  };
   const handleSend = (newMessages) => {
     const message = newMessages[0];
 
@@ -108,12 +125,12 @@ const ChatBotScreen = ({ navigation }) => {
           }
         );
 
-        const data = await response.json();//"token" đề cập đến các đơn vị nhỏ nhất của dữ liệu văn bản được sử dụng để xử lý và đưa vào mô hình.
+        const data = await response.json(); //"token" đề cập đến các đơn vị nhỏ nhất của dữ liệu văn bản được sử dụng để xử lý và đưa vào mô hình.
         //usage: Thông tin về việc sử dụng API.
 
-// completion_tokens: Số lượng token được sử dụng trong quá trình hoàn thành tin nhắn.
-// prompt_tokens: Số lượng token trong phần gợi ý (prompt) của tin nhắn.
-// total_tokens: Tổng số token trong yêu cầu gửi tin nhắn.
+        // completion_tokens: Số lượng token được sử dụng trong quá trình hoàn thành tin nhắn.
+        // prompt_tokens: Số lượng token trong phần gợi ý (prompt) của tin nhắn.
+        // total_tokens: Tổng số token trong yêu cầu gửi tin nhắn.
         console.log(data);
         const assistantMessage = {
           _id: messages[0]._id + 1,
@@ -279,6 +296,7 @@ const ChatBotScreen = ({ navigation }) => {
           ref={giftedChatRef}
         />
         {scrollToBottomButton}
+        {showInfoBanner && <InfoBanner />}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -351,6 +369,26 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     color: "#fff",
+  },
+  infoBanner: {
+    backgroundColor: "#f9dada",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    top: "50%",
+    // left: "50%",
+    // transform: [{ translateX: "-50%" }, { translateY: "-50%" }],
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#e74c3c",
+  },
+  infoBannerText: {
+    fontSize: 16,
+    color: "#333",
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });
 
