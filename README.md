@@ -57,22 +57,22 @@ Mở terminal hoặc command prompt và chạy các lệnh sau để cài đặt
 
 CLI: 
 
-```npm install -g expo-cli ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.001.png)```
+              ```npm install -g expo-cli```
 
 2. **Cài đặt và khởi chạy ứng dụng** 
-1. ***Source code và các package:*** 
+2.1. ***Source code và các package:*** 
 
 Trong terminal, tiến hành clone source code :  
 
-```git clone[ https://github.com/xuanlocgs2000/food_rv_app ](https://github.com/xuanlocgs2000/food_rv_app)![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.002.png)```
+            ```git clone https://github.com/xuanlocgs2000/food_rv_app```
 
 Di chuyển tới source code : 
 
-            ```cd food\_rv\_app ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.003.png)```
+            ```cd food_rv_app```
 
 Cài đặt các gói cần thiết bằng yarn hoặc npm, ở đây ứng dụng sử dụng yarn. Cài đặt yarn: 
 
-             ```yarn install ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.004.png)```
+             ```yarn install ```
 
 2. ***Cấu hình các biến môi trường*** 
 1. *ChatGPT API key* 
@@ -81,7 +81,7 @@ Cài đặt các gói cần thiết bằng yarn hoặc npm, ở đây ứng dụ
 
 Di chuyển vào thư mục root dự án, tạo file .env và dán API key của bạn vào bằng đoạn code sau:  
 
-              ```API\_KEY= YOUR API KEY ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.005.png)```
+              ```API\_KEY= YOUR API KEY ```
 
 2. *Thiết lập Firebase*  
 
