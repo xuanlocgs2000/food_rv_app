@@ -57,7 +57,7 @@ Mở terminal hoặc command prompt và chạy các lệnh sau để cài đặt
 
 CLI: 
 
-npm install -g expo-cli ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.001.png)
+```npm install -g expo-cli ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.001.png)```
 
 2. **Cài đặt và khởi chạy ứng dụng** 
 1. ***Source code và các package:*** 
