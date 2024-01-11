@@ -31,108 +31,81 @@
 
 Link video demo :[![Demo Video](https://i.ibb.co/K0MknQj/Untitled-2-04.png)](https://vimeo.com/832278523/1acdbb1cad)
 
-## 🆕 Getting Started
+**Hướng dẫn cài đặt và triển khai hệ thống                  CHƯƠNG 1. Môi trường phát triển ứng dụng(Development)** 
 
-- ### **Prerequisites**
-- # Hướng dẫn Cài đặt và Triển khai Hệ thống
+1. **Phần mềm và cấu hình cần thiết** 
 
-## CHƯƠNG 1: Môi trường Phát triển Ứng dụng (Development)
+*Bước 1: Cài đặt Visual Studio Code* 
 
-### 1.1 Phần mềm và Cấu hình Cần Thiết
+Tải  xuống  và  cài  đặt  Visual  Studio  Code  từ  trang  web  chính  thức: [https://code.visualstudio.com/ ](https://code.visualstudio.com/)
 
-#### Bước 1: Cài đặt Visual Studio Code
+Mở Visual Studio Code và cài đặt các tiện ích mở rộng cho React Native nếu cần thiết. 
 
-1. Tải xuống và cài đặt [Visual Studio Code](https://code.visualstudio.com/) từ trang web chính thức.
-2. Mở Visual Studio Code và cài đặt các tiện ích mở rộng cho React Native nếu cần thiết.
+*Bước 2: Cài đặt Android Studio và Android SDK* 
 
-#### Bước 2: Cài đặt Android Studio và Android SDK
+Tải  xuống  và  cài  đặt  Android  Studio  từ  trang  web  chính  thức: [https://developer.android.com/studio ](https://developer.android.com/studio)
 
-1. Tải xuống và cài đặt [Android Studio](https://developer.android.com/studio) từ trang web chính thức.
-2. Android Studio đi kèm với Android SDK cần thiết để phát triển ứng dụng React Native cho Android.
-3. Mở Android Studio và cài đặt Android SDK theo hướng dẫn trong quá trình cài đặt, chọn "Standard" hoặc "Custom" installation và đảm bảo rằng Android SDK được cài đặt.
-4. Cài đặt máy ảo Android với cấu hình Android 8.0 trở lên.
+Android Studio đi kèm với Android SDK (Software Development Kit) cần thiết để phát triển ứng dụng React Native cho Android. 
 
-#### Bước 3: Cấu hình Môi trường React Native
+Mở Android Studio và cài đặt Android SDK theo các bước hướng dẫn trong quá trình cài đặt, chọn "Standard" hoặc "Custom" installation và đảm bảo rằng Android SDK được cài đặt. 
 
-Mở terminal hoặc command prompt và chạy các lệnh sau để cài đặt Expo CLI:
+Cài đặt máy ảo android với cấu hình android 8.0 trở lên. 
 
-```bash
-npm install -g expo-cli
+*Bước 3: Cấu hình môi trường React Native* 
 
+Mở terminal hoặc command prompt và chạy các lệnh sau để cài đặt Expo 
 
-# Hướng dẫn Cài đặt và Triển khai Hệ thống
+CLI: 
 
-## CHƯƠNG 1: Môi trường Phát triển Ứng dụng (Development)
+npm install -g expo-cli ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.001.png)
 
-### 1.1 Phần mềm và Cấu hình Cần Thiết
+2. **Cài đặt và khởi chạy ứng dụng** 
+1. ***Source code và các package:*** 
 
-#### Bước 1: Cài đặt Visual Studio Code
+Trong terminal, tiến hành clone source code :  
 
-1. Tải xuống và cài đặt [Visual Studio Code](https://code.visualstudio.com/) từ trang web chính thức.
-2. Mở Visual Studio Code và cài đặt các tiện ích mở rộng cho React Native nếu cần thiết.
+git clone[ https://github.com/xuanlocgs2000/food_rv_app ](https://github.com/xuanlocgs2000/food_rv_app)![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.002.png)
 
-#### Bước 2: Cài đặt Android Studio và Android SDK
+Di chuyển tới source code : 
 
-1. Tải xuống và cài đặt [Android Studio](https://developer.android.com/studio) từ trang web chính thức.
-2. Android Studio đi kèm với Android SDK cần thiết để phát triển ứng dụng React Native cho Android.
-3. Mở Android Studio và cài đặt Android SDK theo hướng dẫn trong quá trình cài đặt, chọn "Standard" hoặc "Custom" installation và đảm bảo rằng Android SDK được cài đặt.
-4. Cài đặt máy ảo Android với cấu hình Android 8.0 trở lên.
+cd food\_rv\_app ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.003.png)
 
-#### Bước 3: Cấu hình Môi trường React Native
+Cài đặt các gói cần thiết bằng yarn hoặc npm, ở đây ứng dụng sử dụng yarn. Cài đặt yarn: 
 
-Mở terminal hoặc command prompt và chạy các lệnh sau để cài đặt Expo CLI:
+yarn install ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.004.png)
 
-```bash
-npm install -g expo-cli
-1.2 Cài đặt và Khởi chạy Ứng dụng
-1.2.1 Source code và Các package
-Trong terminal, tiến hành clone source code:
-bash
-Copy code
-git clone https://github.com/xuanlocgs2000/food_rv_app
-Di chuyển tới thư mục source code:
-bash
-Copy code
-cd food_rv_app
-Cài đặt các gói cần thiết bằng yarn hoặc npm:
-bash
-Copy code
-yarn install
-1.2.2 Cấu hình Các Biến Môi Trường
-1.2.2.1 ChatGPT API key
-Để chatbot AI hoạt động, bạn cần API keys từ ChatGPT. Di chuyển vào thư mục root dự án, tạo file .env và dán API key của bạn vào bằng đoạn code sau:
+2. ***Cấu hình các biến môi trường*** 
+1. *ChatGPT API key* 
 
-env
-Copy code
-API_KEY=YOUR_API_KEY
-1.2.2.2 Thiết lập Firebase
-Thiết lập Firebase được cấu hình trong file food_rv_app\firebase\firebase.js.
+` `Để chatbot AI hoạt động thì cần có API keys, bạn phải có tài khoản chatGPT, truy cập[ https://platform.openai.com/account/api-keys ](https://platform.openai.com/account/api-keys)để lấy API key.  
 
-1.2.3 Khởi chạy Ứng dụng
-Chạy lệnh:
-bash
-Copy code
-yarn start
-hoặc
+Di chuyển vào thư mục root dự án, tạo file .env và dán API key của bạn vào bằng đoạn code sau:  
 
-bash
-Copy code
-npm start
-Sử dụng máy ảo với:
-bash
-Copy code
-yarn android
-CHƯƠNG 2: Môi trường Sản phẩm Ứng dụng - Cài đặt Nhanh (Quick Installation)
-2.1 Android (Version 8.0 trở lên)
-Chạy bằng Expo Go app: Tải và cài đặt Expo Go trên Google Play, mở app và quét mã QR sau để chạy ứng dụng.
-Cài đặt file Apk tại đây.
-2.2 IOS
-Sử dụng camera scan của iPhone quét mã QR code bên trên để khởi chạy ứng dụng.
+API\_KEY= YOUR API KEY ![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.005.png)
 
-css
-Copy code
+2. *Thiết lập Firebase*  
 
-Hãy chắc chắn thay thế phần `[link_to_apk]` bằng liên kết cụ thể đến file APK 
+Thiết lập Firebase được cấu hình trong file food\_rv\_app\firebase\firebase.js. 
+
+3. ***Khởi chạy ứng dụng*** 
+1. Chạy câu lệnh *yarn start* hoặc *npm start* để khởi chạy ứng dụng. 
+1. Sử dụng máy ảo với yarn android.
+
+**CHƯƠNG 2. Môi trường sản phẩm ứng dụng - cài đặt nhanh (Quick Installation)** 
+
+1. **Android (Version 8.0 trở lên)** 
+1. Chạy bằng Expo Go app  
+
+   Tải và cài đặt Expo Go trên Google play, mở app và quét mã QR sau để chạy ứng dụng:  
+
+![](Aspose.Words.6553e9ab-d63f-4050-8381-3fe829e61e04.006.png)
+
+2. Cài đặt file Apk[ tại đây.](https://github.com/xuanlocgs2000/food_rv_app) 
+2. **IOS** 
+
+Sử dụng camera scan của iPhone quét mã QR code bên trên để khởi chạy ứng dụng. 
+3 
+
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
