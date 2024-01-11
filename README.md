@@ -29,8 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 
 Link video demo :[![Demo Video](https://i.ibb.co/K0MknQj/Untitled-2-04.png)](https://vimeo.com/832278523/1acdbb1cad)
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/832278523?h=1acdbb1cad&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 21:20:18 1/6/2023"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=m5nCB3fCLHI)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/m5nCB3fCLHI/0.jpg)](https://www.youtube.com/watch?v=m5nCB3fCLHI)
 
 **Hướng dẫn cài đặt và triển khai hệ thống                  CHƯƠNG 1. Môi trường phát triển ứng dụng(Development)** 
 
