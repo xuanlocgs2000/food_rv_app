@@ -14,15 +14,14 @@
 
   <h3 align="center">Food review app </h3>
 
- 
-   #### Các chức năng về tài khoản: 
-   đăng nhập, đăng kí ,
-   quên mật khẩu(gửi qua email sử dụng Google firebase)
-   #### Các chức năng về ứng dụng: đăng bài viết:
-   bình phẩm yêu thích bài viết(món ăn)
-   tìm kiếm
-   danh sách yêu thích(loadding...)
-   theo dõi người dùng, chỉnh sửa profile.
+#### Các chức năng về tài khoản: 
+   -Đăng nhập, đăng kí ,
+   -Quên mật khẩu(gửi qua email sử dụng Google firebase)
+#### Các chức năng về ứng dụng: đăng bài viết:
+   -Bình phẩm yêu thích bài viết(món ăn)
+   -Tìm kiếm
+   -Danh sách yêu thích(loadding...)
+   -Theo dõi người dùng, chỉnh sửa profile.
  
 
 </p>
