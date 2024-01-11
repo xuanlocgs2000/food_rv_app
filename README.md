@@ -28,6 +28,30 @@ Link video demo :[![Demo Video](https://i.ibb.co/K0MknQj/Untitled-2-04.png)](htt
 ## 🆕 Getting Started
 
 - ### **Prerequisites**
+- # Hướng dẫn Cài đặt và Triển khai Hệ thống
+
+## CHƯƠNG 1: Môi trường Phát triển Ứng dụng (Development)
+
+### 1.1 Phần mềm và Cấu hình Cần Thiết
+
+#### Bước 1: Cài đặt Visual Studio Code
+
+1. Tải xuống và cài đặt [Visual Studio Code](https://code.visualstudio.com/) từ trang web chính thức.
+2. Mở Visual Studio Code và cài đặt các tiện ích mở rộng cho React Native nếu cần thiết.
+
+#### Bước 2: Cài đặt Android Studio và Android SDK
+
+1. Tải xuống và cài đặt [Android Studio](https://developer.android.com/studio) từ trang web chính thức.
+2. Android Studio đi kèm với Android SDK cần thiết để phát triển ứng dụng React Native cho Android.
+3. Mở Android Studio và cài đặt Android SDK theo hướng dẫn trong quá trình cài đặt, chọn "Standard" hoặc "Custom" installation và đảm bảo rằng Android SDK được cài đặt.
+4. Cài đặt máy ảo Android với cấu hình Android 8.0 trở lên.
+
+#### Bước 3: Cấu hình Môi trường React Native
+
+Mở terminal hoặc command prompt và chạy các lệnh sau để cài đặt Expo CLI:
+
+```bash
+npm install -g expo-cli
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
